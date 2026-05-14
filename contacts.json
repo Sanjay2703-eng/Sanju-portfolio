@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Sj",
+    "email": "sanjay.sj@btech.christuniversity.in",
+    "message": "hi hello how are u",
+    "timestamp": "12/5/2026, 10:31:16 pm",
+    "read": false
+  },
+  {
+    "id": 2,
+    "name": "sj",
+    "email": "sanjay.sj@btech.christuniversity.in",
+    "message": "hi hello",
+    "timestamp": "12/5/2026, 10:35:06 pm",
+    "read": false
+  },
+  {
+    "id": 3,
+    "name": "Sj",
+    "email": "sanjay.sj@btech.christuniversity.in",
+    "message": "hi hello how are u",
+    "timestamp": "12/5/2026, 10:35:14 pm",
+    "read": false
+  },
+  {
+    "id": 4,
+    "name": "sj",
+    "email": "sanjay.sj@btech.christuniversity.in",
+    "message": "hi hello",
+    "timestamp": "12/5/2026, 10:35:19 pm",
+    "read": false
+  },
+  {
+    "id": 5,
+    "name": "sadhb",
+    "email": "sanjay.sj@btech.christuniversity.in",
+    "message": "asdhbasdhj",
+    "timestamp": "12/5/2026, 10:37:47 pm",
+    "read": false
+  },
+  {
+    "id": 6,
+    "name": "sadhb",
+    "email": "sanjay.sj@btech.christuniversity.in",
+    "message": "asdhbasdhj",
+    "timestamp": "12/5/2026, 10:37:51 pm",
+    "read": false
+  },
+  {
+    "id": 7,
+    "name": "Sanjay sj",
+    "email": "sanjay.sj@btech.christuniversity.in",
+    "message": "hi hello",
+    "timestamp": "12/5/2026, 11:13:42 pm",
+    "read": false
+  }
+]

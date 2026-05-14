@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay SJ — AI/ML Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cursorDot"></div>
+  <div id="cursorRing"></div>
+
+  <!-- Scroll progress -->
+  <div id="scrollProgress"></div>
+
+  <!-- ═══ LOADER ═══ -->
+  <div id="loader">
+    <div class="loader-bg"></div>
+    <div class="loader-content">
+      <div class="loader-hex"></div>
+      <div class="loader-name">SANJAY SJ</div>
+      <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+      <div class="loader-status" id="loaderStatus">Initialising neural layers...</div>
+    </div>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav id="nav">
+    <div class="logo">SJ<span class="neon">.</span></div>
+    <div class="nav-center">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#achievements" class="nav-link">Achievements</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <a href="https://ik.imagekit.io/ccbrvwsco/Sanjay_SJ_Resume%20(1).pdf" class="nav-resume" target="_blank">Resume ↗</a>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="mob-overlay" id="mobOverlay">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <canvas id="brainCanvas"></canvas>
+    <!-- Grid overlay -->
+    <div class="hero-grid"></div>
+    <!-- Vignette -->
+    <div class="hero-vignette"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow-text">Available for AI/ML Internships/Work/Research/Hands-on-projects</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line" data-delay="0">SANJAY</span>
+        <span class="title-line accent-line" data-delay="150">SJ</span>
+      </h1>
+      <div class="hero-role-wrap">
+        <span class="role-bracket">[</span>
+        <span id="roleText"></span>
+        <span class="role-cursor">_</span>
+        <span class="role-bracket">]</span>
+      </div>
+      <p class="hero-sub">
+        Research-driven AI/ML engineer building systems that learn, predict and adapt.
+        2 published international papers · Hackathon winner · Christ University, Bangalore.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="cta-primary">
+          <span class="cta-bg"></span>
+          <span class="cta-text">Explore Work</span>
+        </a>
+        <a href="#contact" class="cta-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-numbers">
+        <div class="h-num"><span class="h-val" data-target="9">0</span><span class="h-label">Projects</span></div>
+        <div class="h-sep"></div>
+        <div class="h-num"><span class="h-val" data-target="2">0</span><span class="h-label">Papers</span></div>
+        <div class="h-sep"></div>
+        <div class="h-num"><span class="h-val" data-target="1">0</span><span class="h-label">Hackathon Win</span></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <div class="sec-label reveal">01 — WHO AM I</div>
+      <h2 class="sec-title reveal">About <span class="neon">Me</span></h2>
+      <div class="about-layout">
+        <div class="about-left reveal">
+          <p>I'm a <strong>B.Tech AI &amp; ML student</strong> at Christ University, Bangalore, engineering intelligent systems that make a real impact. I combine deep research with hands-on building — from CNNs detecting deepfakes to RAG-powered document AI.</p>
+          <p>My projects span <strong>computer vision, NLP, predictive analytics,</strong> and <strong>voice AI</strong>. Two international research papers published before my second year says everything about how I approach learning.</p>
+          <div class="tag-cloud">
+            <span>Deep Learning</span><span>Computer Vision</span><span>NLP</span>
+            <span>Generative AI</span><span>Data Science</span><span>Research</span>
+            <span>TensorFlow</span><span>Python</span>
+          </div>
+        </div>
+<div class="about-right reveal">
+  
+  <div class="photo-frame">
+    <div class="photo-inner" style="display:flex; align-items:center; justify-content:center; overflow:hidden;">
+
+      <img 
+        src="https://ik.imagekit.io/ccbrvwsco/WhatsApp%20Image%202026-05-13%20at%2013.15.07.jpeg" 
+        class="about-img" 
+        alt="Sanjay SJ"
+        style="
+          width:100%;
+          height:100%;
+          object-fit:contain;
+          border-radius:20px;
+          display:block;
+        "
+      >
+
+    </div>
+  </div>
+
+</div>
+            <div class="about-info-panel">
+              <div class="info-item"><span class="info-k">Location</span><span class="info-v">Bangalore, India</span></div>
+              <div class="info-item"><span class="info-k">Degree</span><span class="info-v">B.Tech AI &amp; ML</span></div>
+              <div class="info-item"><span class="info-k">University</span><span class="info-v">Christ University</span></div>
+              <div class="info-item"><span class="info-k">Batch</span><span class="info-v">2024 – 2028</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROJECTS ═══ -->
+  <section id="projects" class="section section-alt">
+    <div class="wrap">
+      <div class="sec-label reveal">02 — WHAT I BUILT</div>
+      <h2 class="sec-title reveal">Featured <span class="neon">Projects</span></h2>
+      <p class="sec-desc reveal">Click any card to flip and see full details.</p>
+
+      <div class="filter-row reveal">
+        <button class="f-btn active" data-f="all">All</button>
+        <button class="f-btn" data-f="vision">Vision</button>
+        <button class="f-btn" data-f="nlp">NLP / GenAI</button>
+        <button class="f-btn" data-f="predict">Prediction</button>
+        <button class="f-btn" data-f="dash">Dashboard</button>
+      </div>
+
+      <div class="cards-grid" id="cardsGrid">
+
+        <!-- CARD 1 -->
+        <div class="flip-wrap reveal" data-cat="vision nlp">
+          <div class="flip-card" id="c1">
+            <div class="flip-front">
+              <div class="card-glow" style="--hue:260deg"></div>
+              <img src="https://ik.imagekit.io/ccbrvwsco/business.png" alt="AI Dashboard" class="card-image">
+              <div class="card-cat">AI + ML</div>
+              <h3>AI Business Insights + Prediction Dashboard</h3>
+              <div class="card-hint">Click to reveal details</div>
+            </div>
+            <div class="flip-back">
+              <div class="card-glow" style="--hue:180deg"></div>
+              <h3>AI Business Insights</h3>
+              <p>Full-stack business intelligence platform powered by ML models — real-time KPI tracking, anomaly detection, and future-trend forecasting in one unified dashboard.</p>
+              <div class="back-tech"><span>Python</span><span>TensorFlow</span><span>Pandas</span><span>Plotly</span></div>
+              <a href="https://github.com/Sanjay2703-eng" target="_blank" class="back-link">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="flip-wrap reveal" data-cat="vision">
+          <div class="flip-card" id="c2">
+            <div class="flip-front">
+              <div class="card-glow" style="--hue:0deg"></div>
+              <img src="https://ik.imagekit.io/ccbrvwsco/39b3a2ec-7f54-4496-ad1f-47a050ff4788.png" alt="Deepfake Detector" class="card-image">
+              <div class="card-cat">CNN</div>
+              <h3>AI vs Real CNN — Deepfake Detector</h3>
+              <div class="card-hint">Click to reveal details</div>
+            </div>
+            <div class="flip-back">
+              <div class="card-glow" style="--hue:340deg"></div>
+              <h3>Deepfake Detector</h3>
+              <p>CNN that distinguishes AI-generated images from real photos with high accuracy — trained with data augmentation and hyperparameter tuning.</p>
+              <div class="back-tech"><span>Python</span><span>Keras</span><span>CNN</span><span>OpenCV</span></div>
+              <a href="https://github.com/Sanjay2703-eng" target="_blank" class="back-link">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="flip-wrap reveal" data-cat="dash">
+          <div class="flip-card" id="c3">
+            <div class="flip-front">
+              <div class="card-glow" style="--hue:120deg"></div>
+              <img src="https://ik.imagekit.io/ccbrvwsco/Screenshot%202026-04-16%20135844.png" alt="Business Health Dashboard" class="card-image">
+              <div class="card-cat">Dashboard</div>
+              <h3>Business Health Dashboard</h3>
+              <div class="card-hint">Click to reveal details</div>
+            </div>
+            <div class="flip-back">
+              <div class="card-glow" style="--hue:150deg"></div>
+              <h3>Business Health Dashboard</h3>
+              <p>Interactive analytics dashboard with revenue trends, operational KPIs and drill-down capability — real-time data refresh.</p>
+              <div class="back-tech"><span>Streamlit</span><span>Pandas</span><span>Matplotlib</span><span>Python</span></div>
+              <a href="https://github.com/Sanjay2703-eng" target="_blank" class="back-link">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="flip-wrap reveal" data-cat="predict">
+          <div class="flip-card" id="c4">
+            <div class="flip-front">
+              <div class="card-glow" style="--hue:45deg"></div>
+              <img src="https://ik.imagekit.io/ccbrvwsco/ChatGPT%20Image%20May%2013,%202026,%2012_30_09%20PM.png" alt="Future Sale Prediction" class="card-image">
+              <div class="card-cat">ML</div>
+              <h3>Future Sale Prediction</h3>
+              <div class="card-hint">Click to reveal details</div>
+            </div>
+            <div class="flip-back">
+              <div class="card-glow" style="--hue:60deg"></div>
+              <h3>Future Sale Prediction</h3>
+              <p>Time-series ML model predicting future sales with trend analysis, seasonality decomposition, and confidence intervals for data-driven planning.</p>
+              <div class="back-tech"><span>Scikit-learn</span><span>ARIMA</span><span>Pandas</span><span>Python</span></div>
+              <a href="https://github.com/Sanjay2703-eng" target="_blank" class="back-link">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="flip-wrap reveal" data-cat="predict">
+          <div class="flip-card" id="c5">
+            <div class="flip-front">
+              <div class="card-glow" style="--hue:210deg"></div>
+              <img src="https://ik.imagekit.io/ccbrvwsco/ChatGPT%20Image%20May%2013,%202026,%2012_31_33%20PM.png" alt="House Price Prediction" class="card-image">
+              <div class="card-cat">Regression</div>
+              <h3>House Price Prediction</h3>
+              <div class="card-hint">Click to reveal details</div>
+            </div>
+            <div class="flip-back">
+              <div class="card-glow" style="--hue:230deg"></div>
+              <h3>House Price Prediction</h3>
+              <p>Advanced regression model predicting house prices across 20+ features. Includes feature engineering, cross-validation, and a live prediction interface.</p>
+              <div class="back-tech"><span>XGBoost</span><span>NumPy</span><span>Seaborn</span><span>Python</span></div>
+              <a href="https://github.com/Sanjay2703-eng" target="_blank" class="back-link">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6 -->
+        <div class="flip-wrap reveal" data-cat="nlp">
+          <div class="flip-card" id="c6">
+            <div class="flip-front">
+              <div class="card-glow" style="--hue:280deg"></div>
+              <img src="https://ik.imagekit.io/ccbrvwsco/4.png" alt="RAG Project" class="card-image">
+              <div class="card-cat">RAG / LLM</div>
+              <h3>RAG Project — Smart Doc Q&A</h3>
+              <div class="card-hint">Click to reveal details</div>
+            </div>
+            <div class="flip-back">
+              <div class="card-glow" style="--hue:300deg"></div>
+              <h3>RAG Smart Q&A</h3>
+              <p>Retrieval-Augmented Generation system that ingests documents and answers contextual questions — combining FAISS vector search with generative AI.</p>
+              <div class="back-tech"><span>LangChain</span><span>FAISS</span><span>OpenAI</span><span>Python</span></div>
+              <a href="https://github.com/Sanjay2703-eng" target="_blank" class="back-link">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7 -->
+        <div class="flip-wrap reveal" data-cat="nlp">
+          <div class="flip-card" id="c7">
+            <div class="flip-front">
+              <div class="card-glow" style="--hue:30deg"></div>
+              <img src="https://ik.imagekit.io/ccbrvwsco/Screenshot%202026-04-15%20131935.png" alt="Review AI System" class="card-image">
+              <div class="card-cat">NLP</div>
+              <h3>Review AI System</h3>
+              <div class="card-hint">Click to reveal details</div>
+            </div>
+            <div class="flip-back">
+              <div class="card-glow" style="--hue:20deg"></div>
+              <h3>Review AI System</h3>
+              <p>NLP sentiment analysis engine classifying customer reviews, extracting key opinions, and generating summary reports at scale.</p>
+              <div class="back-tech"><span>NLTK</span><span>Transformers</span><span>Flask</span><span>Python</span></div>
+              <a href="https://github.com/Sanjay2703-eng" target="_blank" class="back-link">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 8 -->
+        <div class="flip-wrap reveal" data-cat="nlp">
+          <div class="flip-card" id="c8">
+            <div class="flip-front">
+              <div class="card-glow" style="--hue:195deg"></div>
+              <img src="https://ik.imagekit.io/ccbrvwsco/Screenshot%202026-05-13%20100846.png" alt="Voice AI Assistant" class="card-image">
+              <div class="card-cat">Voice AI</div>
+              <h3>Voice AI Assistant</h3>
+              <div class="card-hint">Click to reveal details</div>
+            </div>
+            <div class="flip-back">
+              <div class="card-glow" style="--hue:180deg"></div>
+              <h3>Voice AI Assistant</h3>
+              <p>End-to-end voice AI with speech-to-text, intent recognition, and TTS — handling queries, scheduling, and smart automation tasks.</p>
+              <div class="back-tech"><span>SpeechRecognition</span><span>OpenAI</span><span>pyttsx3</span><span>Python</span></div>
+              <a href="https://github.com/Sanjay2703-eng" target="_blank" class="back-link">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+<!-- CARD 9 — Research (featured) -->
+<div class="flip-wrap reveal featured-wrap" data-cat="vision">
+  <div class="flip-card" id="c9">
+    <div class="flip-front">
+      <div class="card-glow" style="--hue:60deg"></div>
+      <img src="https://ik.imagekit.io/ccbrvwsco/Firefly.png" alt="Published Research" class="card-image">
+      <div class="card-cat">Research ✦ Published</div>
+      <h3>1.Water Quality Monitoring 2.Synthesis and characterization of 3d printable filaments with reinforcement with drumstick fibers,Graphite and nano ceramics 3.Systematic Review of Convolutional Neural Networks and Digital Twinning
+for Automotive Human-Machine Interaction via Hand Gesture Recognition
+</h3>
+      <div class="card-hint">Click to reveal details</div>
+    </div>
+    <div class="flip-back" style="overflow-y:auto; padding:14px; display:flex; flex-direction:column; gap:10px;">
+      <div class="card-glow" style="--hue:90deg"></div>
+
+      <h3 style="font-size:13px; margin:0;">Published Research — Sanjay S J</h3>
+      <p style="font-size:11px; margin:0; line-height:1.5;">
+        Presented research papers at two international conferences — ICAPSM 2025 (Kangeyam Institute of Technology) and ICAEM 2026 (ISTS, East Godavari). Paper: <em>"Water Quality Monitoring and Prediction using Advanced Machine Learning Approaches"</em>
+      </p>
+
+<img
+  src="https://ik.imagekit.io/ccbrvwsco/Firefly.png"
+  alt="Both Certificates — Sanjay S J"
+  style="width:100%; border-radius:8px; object-fit:contain; max-height:none; height:auto; display:block;">
+      <div class="back-tech">
+        <span>TensorFlow</span>
+        <span>Keras</span>
+        <span>CNN</span>
+        <span>NumPy</span>
+      </div>
+      <div class="pub-badges">
+        <span>📄 ICAPSM-2025</span>
+        <span>📄 ICAEM-2026</span>
+        <span>🌍 International</span>
+        <span>✅ Christ University</span>
+      </div>
+    </div>
+  </div>
+</div>
+              <!-- CARD 10 — JARVIS (featured) -->
+<div class="flip-wrap reveal featured-wrap" data-cat="AI assistant automation">
+  <div class="flip-card" id="c10">
+    <div class="flip-front">
+      <div class="card-glow" style="--hue:60deg"></div>
+      <img src="https://ik.imagekit.io/ccbrvwsco/image.png" alt="JARVIS AI Assistant" class="card-image">
+      <div class="card-cat">AI Assistant ✦ Voice Intelligence</div>
+      <h3>J.A.R.V.I.S — Real-Time AI Voice Assistant</h3>
+      <div class="card-hint">Click to reveal details</div>
+    </div>
+    <div class="flip-back">
+      <div class="card-glow" style="--hue:90deg"></div>
+      <h3>J.A.R.V.I.S — Real-Time AI Voice Assistant</h3>
+      <p>This started as a project idea and slowly turned into my own J.A.R.V.I.S.</p>
+      <div class="back-tech">
+        <span>Claude AI</span>
+        <span>Python</span>
+        <span>Speech Recognition</span>
+        <span>Windows SAPI</span>
+      </div>
+      <div class="pub-badges">
+        <span>🎙 Voice Activated</span>
+        <span>⚡ Real-Time AI</span>
+        <span>🔒 Auto-Start</span>
+      </div>
+
+      <video
+        src="https://ik.imagekit.io/ccbrvwsco/WhatsApp%20Video%202026-05-02%20at%2013.33.52.mp4"
+        controls
+        muted
+        style="width:100%; border-radius:8px; margin-top:10px; max-height:160px; object-fit:cover;">
+      </video>
+
+      <a href="https://ik.imagekit.io/ccbrvwsco/WhatsApp%20Video%202026-05-02%20at%2013.33.52.mp4"
+         target="_blank"
+         class="back-link">
+        ▶ Watch Demo ↗
+      </a>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS ═══ -->
+  <section id="skills" class="section">
+    <div class="wrap">
+      <div class="sec-label reveal">03 — TECH STACK</div>
+      <h2 class="sec-title reveal">Skills <span class="neon">&amp; Tools</span></h2>
+
+      <div class="skills-3d-layout">
+        <!-- Left: 3D Planet skill visualization -->
+        <div class="skill-planet-wrap reveal">
+          <div class="skill-planet" id="skillPlanet">
+            <div class="planet-core">
+              <div class="core-ring r1"></div>
+              <div class="core-ring r2"></div>
+              <div class="core-ring r3"></div>
+              <div class="core-glow"></div>
+              <span class="core-label">AI/ML</span>
+            </div>
+            <!-- Orbit 1 -->
+            <div class="orbit-path op1">
+              <div class="orbit-node on1"><span>Python</span></div>
+            </div>
+            <div class="orbit-path op2">
+              <div class="orbit-node on2"><span>TensorFlow</span></div>
+            </div>
+            <div class="orbit-path op3">
+              <div class="orbit-node on3"><span>Keras</span></div>
+            </div>
+            <div class="orbit-path op4">
+              <div class="orbit-node on4"><span>NumPy</span></div>
+            </div>
+            <div class="orbit-path op5">
+              <div class="orbit-node on5"><span>Pandas</span></div>
+            </div>
+            <div class="orbit-path op6">
+              <div class="orbit-node on6"><span>OpenCV</span></div>
+            </div>
+            <div class="orbit-path op7">
+              <div class="orbit-node on7"><span>LangChain</span></div>
+            </div>
+            <div class="orbit-path op8">
+              <div class="orbit-node on8"><span>FAISS</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Skill bars -->
+        <div class="skill-bars-wrap">
+          <div class="skill-category reveal">
+            <h4><span class="neon">▸</span> Machine Learning</h4>
+            <div class="s-bar-row"><label>Python</label><div class="s-track"><div class="s-fill" data-w="82"><span class="s-pct">82%</span></div></div></div>
+            <div class="s-bar-row"><label>TensorFlow / Keras</label><div class="s-track"><div class="s-fill" data-w="72"><span class="s-pct">72%</span></div></div></div>
+            <div class="s-bar-row"><label>CNN / ANN Architectures</label><div class="s-track"><div class="s-fill" data-w="78"><span class="s-pct">78%</span></div></div></div>
+            <div class="s-bar-row"><label>Scikit-learn</label><div class="s-track"><div class="s-fill" data-w="70"><span class="s-pct">70%</span></div></div></div>
+            <div class="s-bar-row"><label>LLMs / Generative AI</label><div class="s-track"><div class="s-fill" data-w="68"><span class="s-pct">68%</span></div></div></div>
+          </div>
+          <div class="skill-category reveal">
+            <h4><span class="neon">▸</span> Data Science</h4>
+            <div class="s-bar-row"><label>NumPy / Pandas</label><div class="s-track"><div class="s-fill" data-w="80"><span class="s-pct">80%</span></div></div></div>
+            <div class="s-bar-row"><label>Data Visualisation</label><div class="s-track"><div class="s-fill" data-w="75"><span class="s-pct">75%</span></div></div></div>
+            <div class="s-bar-row"><label>Feature Engineering</label><div class="s-track"><div class="s-fill" data-w="72"><span class="s-pct">72%</span></div></div></div>
+            <div class="s-bar-row"><label>Research / Documentation</label><div class="s-track"><div class="s-fill" data-w="85"><span class="s-pct">85%</span></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ACHIEVEMENTS ═══ -->
+  <section id="achievements" class="section section-alt">
+    <div class="wrap">
+      <div class="sec-label reveal">04 — MILESTONES</div>
+      <h2 class="sec-title reveal">Achievements <span class="neon">&amp; Certs</span></h2>
+
+      <div class="ach-grid">
+
+        <div class="ach-card reveal" data-type="win">
+          <div class="ach-glow"></div>
+          <div class="ach-icon">🏆</div>
+          <div class="ach-year">2025</div>
+          <h4>BIT Hackathon — 1st Place</h4>
+          <p>Winner of BIT Hackathon Season 2, competing across technology and AI innovation tracks.</p>
+          <div class="ach-badge win-badge">1st Place</div>
+        </div>
+
+        <div class="ach-card reveal" data-type="paper">
+          <div class="ach-glow"></div>
+          <div class="ach-icon">📄</div>
+          <div class="ach-year">2026</div>
+          <h4>Published — ICAEM-2026</h4>
+          <p>3rd International Conference on Advances in Engineering and Medical Sciences. Peer-reviewed international publication.</p>
+          <div class="ach-badge paper-badge">Research Paper</div>
+        </div>
+
+        <div class="ach-card reveal" data-type="paper">
+          <div class="ach-glow"></div>
+          <div class="ach-icon">📄</div>
+          <div class="ach-year">2025</div>
+          <h4>Published — ICAPSM-2025</h4>
+          <p>International Conference on Advances in Physical Sciences and Mathematics. Peer-reviewed paper presented.</p>
+          <div class="ach-badge paper-badge">Research Paper</div>
+        </div>
+                <div class="ach-card reveal" data-type="paper">
+          <div class="ach-glow"></div>
+          <div class="ach-icon">📄</div>
+          <div class="ach-year">2025</div>
+          <h5>Published — Google Scholar 2026</h5>
+          <p>Systematic Review of Convolutional Neural Networks and Digital Twinning
+          for Automotive Human-Machine Interaction via Hand Gesture Recognition. Peer-reviewed international publication.</p>
+          <div class="ach-badge paper-badge">Research Paper</div>
+        </div>
+
+        <div class="ach-card reveal" data-type="cert">
+          <div class="ach-glow"></div>
+          <div class="ach-icon">🎓</div>
+          <div class="ach-year">2024–25</div>
+          <h4>Infosys Springboard</h4>
+          <p>Certified in Deep Learning, CNN/ANN, Generative AI, and Prompt Engineering via Infosys Springboard.</p>
+          <div class="ach-badge cert-badge">Certified</div>
+        </div>
+
+        <div class="ach-card reveal" data-type="cert">
+          <div class="ach-glow"></div>
+          <div class="ach-icon">🌐</div>
+          <div class="ach-year">2024–25</div>
+          <h4>Cisco Certifications</h4>
+          <p>Cisco-certified in networking fundamentals and technology infrastructure essentials.</p>
+          <div class="ach-badge cert-badge">Certified</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" class="section">
+    <div class="wrap">
+      <div class="sec-label reveal">05 — LET'S TALK</div>
+      <h2 class="sec-title reveal">Get In <span class="neon">Touch</span></h2>
+      <div class="contact-layout">
+        <div class="contact-left reveal">
+          <p>Got a project, research collaboration, or internship opportunity? Let's connect and build something intelligent together.</p>
+          <div class="c-links">
+            <a href="mailto:sjsanjay2703@gmail.com" class="c-link"><span class="c-icon">✉</span><span>sjsanjay2703@gmail.com</span></a>
+            <a href="tel:+919489330900" class="c-link"><span class="c-icon">📱</span><span>+91 94893 30900</span></a>
+            <a href="https://github.com/Sanjay2703-eng" target="_blank" class="c-link"><span class="c-icon">💻</span><span>github.com/Sanjay2703-eng</span></a>
+            <a href="#" class="c-link"><span class="c-icon">🔗</span><span>LinkedIn: Sanjay Sukumar</span></a>
+          </div>
+        </div>
+        <div class="contact-right reveal">
+<div class="form-group">
+  <input type="text" id="name" class="form-inp" placeholder="Your Name" />
+</div>
+
+<div class="form-group">
+  <input type="email" id="email" class="form-inp" placeholder="Your Email" />
+</div>
+
+<div class="form-group">
+  <textarea id="message" class="form-inp form-ta" placeholder="Your Message" rows="5"></textarea>
+</div>
+          <button class="form-submit" id="submitBtn">
+            <span class="submit-bg"></span>
+            <span>Send Message →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="foot-inner">
+      <span class="foot-logo">SJ<span class="neon">.</span></span>
+      <span>Sanjay SJ &copy; 2026 — Built with passion &amp; Python</span>
+      <span>Bangalore 🇮🇳</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
