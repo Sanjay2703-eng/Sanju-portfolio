@@ -20,7 +20,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 const CONTACTS_FILE = path.join(__dirname, 'contacts.json');
 
@@ -309,7 +309,7 @@ app.get('/api/health', (req, res) => {
 app.get('*', (req, res) => {
 
   res.sendFile(
-    path.join(__dirname, 'public', 'index.html')
+    path.join(__dirname, 'index.html')
   );
 
 });
