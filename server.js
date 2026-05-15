@@ -34,11 +34,16 @@ if (!fs.existsSync(CONTACTS_FILE)) {
 ───────────────────────────────────── */
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL,
     pass: process.env.PASSWORD,
   },
+  tls: {
+    rejectUnauthorized: false
+  }
 });
 
 /* ─────────────────────────────────────
@@ -183,7 +188,9 @@ app.post('/api/contact', rateLimit, async (req, res) => {
 
   } catch (e) {
 
-    console.log(e);
+    console.error('❌ FULL ERROR:', e.message);
+    console.error('❌ ERROR CODE:', e.code);
+    console.error('❌ STACK:', e.stack);
 
     return res.status(500).json({
       success: false,
