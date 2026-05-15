@@ -39,7 +39,7 @@ function sendEmailViaResend({ to, replyTo, subject, html }) {
   return new Promise((resolve, reject) => {
     const body = JSON.stringify({
       from: 'Portfolio <onboarding@resend.dev>',
-      to: [to],
+      to: to,
       reply_to: replyTo,
       subject,
       html,
@@ -186,7 +186,7 @@ app.post('/api/contact', rateLimit, async (req, res) => {
     ───────────────────────────────────── */
 
     await sendEmailViaResend({
-      to: process.env.EMAIL,
+      to: 'sjsanjay2703@gmail.com',
       replyTo: email,
       subject: `📩 Portfolio Message from ${name}`,
       html: `
