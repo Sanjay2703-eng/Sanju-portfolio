@@ -20,7 +20,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 const CONTACTS_FILE = path.join(__dirname, 'contacts.json');
 
