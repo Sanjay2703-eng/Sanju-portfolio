@@ -462,15 +462,20 @@ if (submitBtn) {
     submitBtn.style.opacity = '0.7';
 
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15000);
+
       const res = await fetch('/api/contact', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           name:    nameVal.value.trim(),
           email:   mailVal.value.trim(),
           message: msgVal.value.trim(),
         }),
       });
+      clearTimeout(timeout);
 
       const data = await res.json();
 
@@ -486,9 +491,13 @@ if (submitBtn) {
       }
 
     } catch (err) {
-      label.textContent          = '✗ Error';
+      label.textContent          = '✗ Timeout';
       submitBtn.style.background = 'linear-gradient(135deg, #ff2d87, #7b2fff)';
-      showToast('❌ Cannot reach server. Email me directly!', 'error');
+      if (err.name === 'AbortError') {
+        showToast('⏳ Server is waking up (free tier). Wait 30s and try again!', 'error');
+      } else {
+        showToast('❌ Cannot reach server. Email me directly!', 'error');
+      }
     }
 
     // Reset button after 3s
