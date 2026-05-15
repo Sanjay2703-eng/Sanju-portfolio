@@ -29,22 +29,6 @@ if (!fs.existsSync(CONTACTS_FILE)) {
   console.log('📁 contacts.json created');
 }
 
-/* ─────────────────────────────────────
-   EMAIL TRANSPORT
-───────────────────────────────────── */
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false
-  }
-});
 
 /* ─────────────────────────────────────
    RESEND EMAIL HELPER (works on Render free tier)
