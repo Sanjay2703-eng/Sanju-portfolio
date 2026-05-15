@@ -20,7 +20,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const CONTACTS_FILE = path.join(__dirname, 'contacts.json');
 
@@ -147,31 +147,32 @@ app.post('/api/contact', rateLimit, async (req, res) => {
        SEND EMAIL
     ───────────────────────────────────── */
 
-    await transporter.sendMail({
+    const emailPromise = transporter.sendMail({
       from: process.env.EMAIL,
       to: process.env.EMAIL,
+      replyTo: email,
       subject: `📩 Portfolio Message from ${name}`,
       html: `
-        <div style="font-family:Arial;padding:20px;">
-          <h2>New Portfolio Message 🚀</h2>
-
+        <div style="font-family:Arial;padding:20px;background:#0d0520;color:#fff;border-radius:12px;">
+          <h2 style="color:#00f5d4;">New Portfolio Message 🚀</h2>
           <p><strong>Name:</strong> ${name}</p>
-
-          <p><strong>Email:</strong> ${email}</p>
-
+          <p><strong>Email:</strong> <a href="mailto:${email}" style="color:#7b2fff;">${email}</a></p>
           <p><strong>Message:</strong></p>
-
-          <div style="
-            background:#f5f5f5;
-            padding:15px;
-            border-radius:8px;
-            margin-top:10px;
-          ">
+          <div style="background:#1a0a3a;padding:15px;border-radius:8px;margin-top:10px;">
             ${message}
+          </div>
+          <div style="margin-top:20px;">
+            <a href="mailto:${email}" style="background:#7b2fff;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;">Reply Now ↗</a>
           </div>
         </div>
       `,
     });
+
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Email timeout')), 10000)
+    );
+
+    await Promise.race([emailPromise, timeoutPromise]);
 
     console.log(`\n📩 New message from ${name} <${email}>`);
 
@@ -308,7 +309,7 @@ app.get('/api/health', (req, res) => {
 app.get('*', (req, res) => {
 
   res.sendFile(
-    path.join(__dirname , 'index.html')
+    path.join(__dirname, 'public', 'index.html')
   );
 
 });
