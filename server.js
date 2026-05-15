@@ -7,7 +7,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
-const nodemailer = require('nodemailer');
+const https = require('https');
 require('dotenv').config();
 
 const app = express();
@@ -45,6 +45,55 @@ const transporter = nodemailer.createTransport({
     rejectUnauthorized: false
   }
 });
+
+/* ─────────────────────────────────────
+   RESEND EMAIL HELPER (works on Render free tier)
+   Uses HTTPS API — no SMTP, never blocked
+───────────────────────────────────── */
+
+function sendEmailViaResend({ to, replyTo, subject, html }) {
+  return new Promise((resolve, reject) => {
+    const body = JSON.stringify({
+      from: 'Portfolio <onboarding@resend.dev>',
+      to: [to],
+      reply_to: replyTo,
+      subject,
+      html,
+    });
+
+    const options = {
+      hostname: 'api.resend.com',
+      path: '/emails',
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(body),
+      },
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          resolve(JSON.parse(data));
+        } else {
+          reject(new Error(`Resend API error ${res.statusCode}: ${data}`));
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.setTimeout(10000, () => {
+      req.destroy();
+      reject(new Error('Resend request timeout'));
+    });
+
+    req.write(body);
+    req.end();
+  });
+}
 
 /* ─────────────────────────────────────
    SIMPLE RATE LIMITER
@@ -152,32 +201,25 @@ app.post('/api/contact', rateLimit, async (req, res) => {
        SEND EMAIL
     ───────────────────────────────────── */
 
-    const emailPromise = transporter.sendMail({
-      from: process.env.EMAIL,
+    await sendEmailViaResend({
       to: process.env.EMAIL,
       replyTo: email,
       subject: `📩 Portfolio Message from ${name}`,
       html: `
-        <div style="font-family:Arial;padding:20px;background:#0d0520;color:#fff;border-radius:12px;">
-          <h2 style="color:#00f5d4;">New Portfolio Message 🚀</h2>
+        <div style="font-family:Arial;padding:24px;background:#0d0520;color:#fff;border-radius:12px;max-width:560px;">
+          <h2 style="color:#00f5d4;margin-top:0;">📩 New Portfolio Message</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> <a href="mailto:${email}" style="color:#7b2fff;">${email}</a></p>
           <p><strong>Message:</strong></p>
-          <div style="background:#1a0a3a;padding:15px;border-radius:8px;margin-top:10px;">
-            ${message}
+          <div style="background:#1a0a3a;padding:15px;border-radius:8px;margin-top:8px;line-height:1.7;">
+            ${message.replace(/\n/g, '<br>')}
           </div>
           <div style="margin-top:20px;">
-            <a href="mailto:${email}" style="background:#7b2fff;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;">Reply Now ↗</a>
+            <a href="mailto:${email}?subject=Re: Your portfolio message" style="background:#7b2fff;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">Reply Now ↗</a>
           </div>
         </div>
       `,
     });
-
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Email timeout')), 10000)
-    );
-
-    await Promise.race([emailPromise, timeoutPromise]);
 
     console.log(`\n📩 New message from ${name} <${email}>`);
 
@@ -334,7 +376,7 @@ app.listen(PORT, () => {
 ║   Portfolio → http://localhost:3000     ║
 ║   Messages  → /api/messages             ║
 ║                                          ║
-║   Gmail Notifications Enabled ✅        ║
+║   Resend Email Notifications ✅         ║
 ╚══════════════════════════════════════════╝
   `);
 
