@@ -462,7 +462,7 @@ if (submitBtn) {
     submitBtn.style.opacity = '0.7';
 
     try {
-      const res = await fetch('https://sanju-portfolio-935t.onrender.com/api/contact', {
+      const res = await fetch('/api/contact', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
